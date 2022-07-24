@@ -1,0 +1,18 @@
+/* .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+} */
+
+.LoginFormContent {
+
+    form {
+        display: flex;
+        flex-direction: column;
+        max-width: 30%;
+        gap: 5px;
+        padding: 10px;
+    }
+
+}

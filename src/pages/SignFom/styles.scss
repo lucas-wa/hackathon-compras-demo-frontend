@@ -1,0 +1,103 @@
+.SignFormContent {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    form {
+        background-color: rgb(40, 100, 174);
+        padding: 20px;
+        text-align: center;
+        font: 14pt Arial;
+        width: 350px;
+        border-radius: 7px;
+        border: solid 1px black;
+        color: white;
+
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    h2 {
+        /* border: solid 1px black; */
+        border-radius: 7px;
+        /* background-color: rgb(240, 240, 240); */
+        color: #fff;
+        font: 14pt Arial;
+        margin-bottom: 10px;
+    }
+
+
+    .fields {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+    }
+
+    .fields input {
+        outline: none;
+        border: none;
+    }
+
+    .dadoextraido {
+        right: 20px;
+        border-radius: 5px;
+        padding: 3px;
+    }
+
+
+    .dadosolicitado {
+        left: 20px;
+        font: 13pt Arial;
+    }
+
+    .botoes {
+        display: flex;
+        width: 100%;
+        gap: 5px;
+        margin-top: 10px;
+
+    }
+
+    .botoes input,
+    a {
+        height: 35px;
+        font: 12.5pt Arial;
+        border-radius: 7px;
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        background-color: #a9a7a7;
+
+    }
+
+    .botoes a {
+        color: black;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #botao_credenciar {
+        left: 4%;
+    }
+
+    #botao_logar {
+        right: 4%;
+    }
+
+    #botao_entrar {
+        left: 1%;
+    }
+
+    #iniciar_credenciamento {
+        right: 1%;
+    }
+
+}
