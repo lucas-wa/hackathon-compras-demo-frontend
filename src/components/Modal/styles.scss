@@ -6,11 +6,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    z-index: 1;
 
     .modal {
+        position: relative;
         color: #000;
-        background: rgb(40, 100, 174);
-        padding: 20px;
+        background: #fefefe;
+        padding: 40px 20px 20px;
         gap: 20px;
         display: flex;
         flex-direction: column;
@@ -19,7 +22,20 @@
         border-radius: 10px;
         width: 80%;
         max-width: 700px;
-        height: 40%;
+
+        h2{
+            text-align: center;
+        }
+
+        .closeModal{
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+
+        }
 
         form {
             display: flex;
@@ -30,6 +46,31 @@
             justify-content: center;
             align-items: center;
 
+            .fields {
+                width: 100%;
+                display: flex;
+                gap: 30px;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+
+                label {
+                    text-align: left;
+                }
+
+                input, select {
+                    outline: none;
+                    border: none;
+                    background: inherit;
+                    border-bottom: #000 solid 2px;
+                    padding: 1px;
+                    line-height: 0;
+                    width: 100%;
+                    max-width: 250px;
+                }
+
+            }
+
             div {
                 width: 100%;
                 display: flex;
@@ -38,36 +79,23 @@
                 align-items: center;
                 padding: 0 30px;
                 margin-top: 20px;
+                flex-wrap: wrap;
 
                 button {
                     width: 100%;
+                    min-width: 100px;
+                    max-width: 200px;
                     height: 30px;
                     border-radius: 5px;
                     border: none;
                     cursor: pointer;
+                    background: rgb(40, 100, 174);
+
 
                 }
             }
         }
 
-        .fields {
-            width: 100%;
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            align-items: center;
-
-            input {
-                outline: none;
-                border: none;
-                background: inherit;
-                border-bottom: #000 solid 2px;
-                padding: 1px;
-                line-height: 0;
-                width: 100%;
-                max-width: 300px;
-            }
-
-        }
+    
     }
 }

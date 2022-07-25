@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { AiOutlineUser, AiOutlinePlus } from "react-icons/ai";
+import { AiOutlineUser, AiOutlinePlus, AiOutlineMenu } from "react-icons/ai";
 import { GrClose } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { Modal } from "../../components/Modal";
+import { SharedFooter } from "../../components/SharedFooter";
 import "./dashboard.scss"
 
 
@@ -25,34 +26,39 @@ export function Dashboard() {
     }
 
     function handleDeleteItem(item, key){
-        if(item == "product") setProducts(prevState => {
-            const prev = [...prevState];
 
-            prev.splice(Number(key), 1);
+        function deleteItem(prevState){
+                const prev = [...prevState];
+    
+                prev.splice(Number(key), 1);
+    
+                return prev 
+        }
 
-            return prev 
-        })
-        if(item == "service") setServices(prevState => {
-            const prev = [...prevState];
+        if(item == "product") setProducts(prevState => deleteItem(prevState))
+        if(item == "service") setServices(prevState => deleteItem(prevState))
+        if(item == "contact") setContacts(prevState => deleteItem(prevState))
+    }
 
-            prev.splice(Number(key), 1);
+    function handleMenu(event){
 
-            return prev 
-        })
-        if(item == "contact") setContacts(prevState => {
-            const prev = [...prevState];
+        const  navBar = document.querySelector(".navBar");
 
-            prev.splice(Number(key), 1);
+        navBar.classList.toggle("sr-only")
 
-            return prev 
-        })
     }
 
 
     return (
         <>
             {
-               !isModalHidden && <Modal itemToAdd={modalAddItem} handleAddItems={handleAddItems} handleModal={handleModal}/>
+               !isModalHidden 
+               && 
+               <Modal 
+               itemToAdd={modalAddItem} 
+               handleAddItems={handleAddItems} 
+               handleModal={handleModal}
+               />
             }
 
             <div className="DashboardContent">
@@ -64,11 +70,23 @@ export function Dashboard() {
                         </div>
                         <p>
                             <strong>
-                                Empresa
+                                Distribuidora Cerveja {"&"} Cia
                             </strong>
+                            <p>
+                                Responsável: Daiane Melo
+                            </p>
+                            <p>
+                                CNPJ: 371573840001-80
+                            </p>
                         </p>
                     </div>
-                    <nav className="navBar">
+
+                    <AiOutlineMenu 
+                    className="menuSvg"
+                    onClick={(event)=>handleMenu(event)}
+                    />
+
+                    <nav className="navBar sr-only">
 
                         <ul >
                             <li>
@@ -116,7 +134,7 @@ export function Dashboard() {
 
                     <section className="products">
                         <span>
-                            <h2>Servicos</h2>                                <AiOutlinePlus
+                            <h2>Serviços</h2>                                <AiOutlinePlus
                                  onClick={() => {
                                     setModalAddItem("service")
                                     handleModal(false)
@@ -150,7 +168,7 @@ export function Dashboard() {
                             contacts.map((el, idx) => (
                                 <span className="item" key={idx}>
                                     <p>
-                                    {`${el[0]}: R$ ${el[1]}`}
+                                    {`${el[0]}: ${el[1]}`}
                                     </p>
                                     <GrClose 
                                     onClick={() => handleDeleteItem("contact", idx)}/>
@@ -159,14 +177,8 @@ export function Dashboard() {
                         }
                     </section>
                 </main>
-                <footer>
-                    <p>&copy; AchaFacilSicaf</p>
-                    <div className="appInfos">
-                        <Link to="#">SICAF</Link>
-                        <Link to="#">Governo Federal</Link>
-                        <Link to="#">Compras.gov</Link>
-                    </div>
-                </footer>
+
+                <SharedFooter/>
             </div>
         </>
     )

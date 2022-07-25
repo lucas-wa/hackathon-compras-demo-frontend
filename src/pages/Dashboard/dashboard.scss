@@ -2,15 +2,19 @@
     width: 100%;
     height: 100%;
 
+    padding-bottom: 200px;
 
+    display: flex;
+    flex-direction: column;
 
     header {
         width: 100%;
-
         display: flex;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        justify-content: center;
         align-items: center;
-        flex-direction: row;
+        flex-direction: column;
+
 
         background: rgb(40, 100, 174);
 
@@ -18,9 +22,9 @@
 
         .userInfos {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            line-height: 0;
             padding: 5px;
             gap: 10px;
 
@@ -40,25 +44,58 @@
 
 
 
+        .navBar {
+            width: 100%;
+
+        }
+
         .navBar ul {
             display: flex;
+            flex-direction: column;
             list-style: none;
-            gap: 10px;
+            width: 100%;
+
+            // gap: 10px;
         }
 
         .navBar ul li {
+            width: 100%;
             padding: 10px;
             cursor: pointer;
             transition: background-color .3s ease;
+            text-align: center;
+            border-top: 1px solid rgb(26, 75, 134);
 
-            &:hover{
+            &:hover {
                 background-color: rgb(26, 75, 134);
             }
+        }
+
+        .menuSvg {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
         }
     }
 
     main {
         display: flex;
+        flex-wrap: wrap;
         width: 100%;
         height: 100%;
 
@@ -70,6 +107,8 @@
 
         .products {
             min-height: 500px;
+            max-width: 350px;
+
             background: #a7a7a7;
             width: 100%;
             height: 100%;
@@ -83,8 +122,9 @@
 
             span {
                 display: flex;
+                width: 100%;
                 align-items: center;
-                justify-content: center;
+                justify-content: space-between;
                 gap: 5px;
 
                 svg {
@@ -119,32 +159,59 @@
         }
     }
 
-    footer {
-        background: rgb(40, 100, 174);
-        width: 100%;
-        height: 100%;
-        padding: 20px;
-        display: flex;
-        gap:10px;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
 
-        div {
-            padding: 20px;
-            border-top: 1px solid #fff;
-            display: flex;
-            gap: 20px;
-            text-align: center;
-            justify-content: center;
-            width: 100%;
+}
 
+@media only screen and (min-width: 768px) {
+    .DashboardContent {
+        header {
+            justify-content: space-between;
+            flex-direction: row;
 
-            a {
-                text-decoration: none;
-                color: black;
+            .userInfos {
+                flex-direction: row;
+            }
+
+            .navBar ul {
+                flex-direction: row;
+
+                li {
+                    border: none;
+                    text-align: initial;
+                    width: initial;
+
+                }
+
+            }
+
+            .menuSvg {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border-width: 0;
+            }
+
+            .sr-only {
+                position: initial;
+                width: initial;
+                height: initial;
+                padding: initial;
+                margin: 0;
+                overflow: initial;
+                clip: initial;
+                white-space: initial;
+                border-width: initial;
+            }
+
+            .navBar{
+                width: initial;
+
             }
         }
     }
-
 }

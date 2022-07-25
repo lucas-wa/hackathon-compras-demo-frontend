@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AiOutlineClose } from "react-icons/ai";
 import "./styles.scss"
 
 
@@ -7,6 +8,8 @@ export function Modal({ handleModal, handleAddItems, itemToAdd }) {
     const [itemName, setIntemName] = useState("");
     const [itemPrice, setItemPrice] = useState("");
 
+    let selectOptions;
+
     const itemAdd = itemToAdd == "product" ? 
     " Produto"
     :
@@ -14,6 +17,35 @@ export function Modal({ handleModal, handleAddItems, itemToAdd }) {
     " Serviço"
     :
     " Contato"
+
+    if(itemToAdd == "product"){
+        // itemAdd = "product";
+
+        selectOptions = <>
+            <option value="alimentos">Alimentos</option>
+            <option value="bebidas">Bebidas</option>
+            <option value="escritorio">Produtos de Papelaria</option>
+            <option value="construcao">Materiais de Construção</option>
+            <option value="outros">Outros</option>
+        </>;
+
+    }else if(itemToAdd == "service"){
+        selectOptions = <>
+        <option value="ti">Tecnologia da Informação</option>
+        <option value="eletrica">Eletricista</option>
+        <option value="tecnico">Serviços Técnicos</option>
+        <option value="marketing">Trabalhos com Marketing</option>
+        <option value="outros">Outros</option>
+    </>;
+    }else{
+        selectOptions = <>
+        <option value="instagram">Instagram</option>
+        <option value="twitter">Twitter</option>
+        <option value="facebook">Facebook</option>
+        <option value="linkedin">Linkedin</option>
+        <option value="whatsapp">Whatsapp</option>
+        </>;
+    }
 
     function handleCloseModal(event) {
         event.preventDefault();
@@ -27,9 +59,19 @@ export function Modal({ handleModal, handleAddItems, itemToAdd }) {
         handleAddItems(value);
     } 
 
+    function handleAddContactName(){
+        
+    }
+
     return (
         <div className="modalWrapper">
             <div className="modal">
+                <AiOutlineClose
+                className="closeModal"
+                onClick={(event) => {
+                    handleCloseModal(event)
+                }} 
+                />
                 <h2>
                     Adicione um
                     {
@@ -39,13 +81,44 @@ export function Modal({ handleModal, handleAddItems, itemToAdd }) {
                 </h2>
 
                 <form>
+
                     <span className="fields">
-                        <label htmlFor="productName">
+                    <label htmlFor="productCategory">
                             {
                                 itemToAdd == "contact"
                                 ?
                                 `Adicione a rede social: `
                                 :
+                                `Categoria do ${itemAdd.toLowerCase()}: `
+                            } 
+                        </label>
+                        <select 
+                        name="" 
+                        id="selectCategory"
+                        onChange={
+                            (event)=>{
+                                if(itemToAdd == "contact") {
+                        
+                                    const select = event.target;
+                                    setIntemName(`${select.options[select.selectedIndex].text}`)
+
+                                }
+                            }
+                        }
+                        
+                        >
+                            {
+                                selectOptions
+                            }
+                        </select>
+                    </span>
+
+{
+                    itemToAdd != "contact" 
+                    &&                 
+                    <span className="fields">
+                        <label htmlFor="productName">
+                            {
                                 `Nome do ${itemAdd.toLowerCase()}: `
                             } 
                         </label>
@@ -55,7 +128,7 @@ export function Modal({ handleModal, handleAddItems, itemToAdd }) {
                         id="productName" 
                         onChange={(event) => setIntemName(event.target.value)}/>
                     </span>
-
+}
                     <span className="fields">
                         <label htmlFor="productPrice">
                         {
@@ -76,6 +149,7 @@ export function Modal({ handleModal, handleAddItems, itemToAdd }) {
                         <button type="submit"
                         onClick={(event) => {
                             handleCloseModal(event)
+                            handleAddContactName()
                             handleAddAnyItem([itemName, itemPrice])
                         }
 

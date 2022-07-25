@@ -10,7 +10,7 @@ export function Authenticate({ handleUserLogin }) {
 
             <header>
                 <h2>
-                    Bem Vindo ao site de compras rápidas do Governo
+                Bem vindo ao site de compras do governo federal Acha Fácil Sicaf
                 </h2>
             </header>
 

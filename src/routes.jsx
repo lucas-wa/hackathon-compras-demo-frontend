@@ -3,7 +3,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import { Dashboard } from './pages/Dashboard';
 import { Authenticate } from "./pages/Authenticate"
-import { Modal } from "./components/Modal";
+import { Catalog } from "./pages/Catalog";
 
 export function AppRoutes() {
     return (
@@ -11,7 +11,7 @@ export function AppRoutes() {
             <Routes>
                 <Route element={<Authenticate/>} path="/" exact />
                 <Route element={<Dashboard/>} path="/dashboard"  />
-                <Route element={<Modal/>} path="/dashboard/modal" exact />
+                <Route element={<Catalog/>} path="/catalog"/> 
             </Routes>
         </BrowserRouter>
     )
