@@ -5,7 +5,7 @@ import { Dashboard } from './pages/Dashboard';
 import { Authenticate } from "./pages/Authenticate"
 import { Catalog } from "./pages/Catalog";
 
-export function AppRoutes() {
+export function AppRoutes(props) {
     return (
         <BrowserRouter>
             <Routes>

@@ -2,19 +2,40 @@ import { useEffect, useState } from 'react'
 // import api from "./services/api"
 // import { Dashboard } from './pages/Dashboard';
 // import { Authenticate } from "./pages/Authenticate"
-import {AppRoutes} from "./routes";
+import { AppRoutes } from "./routes";
 import "./App.css"
 import './index.css'
+import { Context } from './context/context';
 
 function App() {
 
-  const [user, setUser] = useState(undefined)
+  const [rootHeight, setRootHeight] = useState(
+    document
+    .querySelector("#root")
+    .getBoundingClientRect()
+    .height
+  )
 
 
-  function handleUserLogin(user) {
+  // useEffect(() => {
+  //   const root = document.querySelector("#root");
 
-    setUser(user);
+  //   const rootHeight = root.getBoundingClientRect().height;
 
+  //   if (rootHeight < window.screen.height) {
+  //     root.style.height = "100vh";
+  //   }
+
+
+
+  //   console.log(rootHeight)
+
+
+
+  // }, [])
+
+  function handleRootHeight(height) {
+    setRootHeight(height)
   }
 
 
@@ -28,7 +49,9 @@ function App() {
   // }, []); 
 
   return (
-    <AppRoutes/>
+    <Context.Provider value={{handleRootHeight}}>
+      <AppRoutes />
+    </Context.Provider>
   )
 }
 

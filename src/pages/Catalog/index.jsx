@@ -1,9 +1,16 @@
+import { useEffect } from "react";
+import { useContext } from "react";
 import { SharedFooter } from "../../components/SharedFooter";
+import { Context } from "../../context/context";
+
 import "./styles.scss"
 
 export function Catalog() {
 
-    const providers = [...new Array(2).keys()].map(el => `Fornecedor ${el}`);
+    const {handleRootHeight} = useContext(Context);
+
+    const providers = [...new Array(10).keys()].map(el => `Fornecedor ${el}`);
+
 
 
     return (

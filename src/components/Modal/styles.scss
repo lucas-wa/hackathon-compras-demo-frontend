@@ -23,11 +23,11 @@
         width: 80%;
         max-width: 700px;
 
-        h2{
+        h2 {
             text-align: center;
         }
 
-        .closeModal{
+        .closeModal {
             position: absolute;
             right: 20px;
             top: 20px;
@@ -52,13 +52,18 @@
                 gap: 30px;
                 justify-content: space-between;
                 align-items: center;
-                flex-wrap: wrap;
+                flex-direction: column;
+                text-align: left;
+                // flex-wrap: wrap;
 
                 label {
                     text-align: left;
+                width: 100%;
+
                 }
 
-                input, select {
+                input,
+                select {
                     outline: none;
                     border: none;
                     background: inherit;
@@ -81,6 +86,7 @@
                 margin-top: 20px;
                 flex-wrap: wrap;
 
+
                 button {
                     width: 100%;
                     min-width: 100px;
@@ -90,12 +96,35 @@
                     border: none;
                     cursor: pointer;
                     background: rgb(40, 100, 174);
+                    font-weight: 700;
 
+                    &:nth-child(2) {
+                        background: #f00;
+                    }
 
                 }
+
             }
         }
 
-    
+
     }
+}
+
+@media only screen and (min-width: 768px) {
+.modalWrapper {
+    .modal {
+
+        form {
+            .fields {
+                flex-direction: row;
+                label {
+                    width: initial;
+                }
+            }
+
+        }
+
+    }
+}
 }

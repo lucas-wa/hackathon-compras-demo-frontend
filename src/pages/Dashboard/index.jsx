@@ -4,6 +4,7 @@ import { GrClose } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { Modal } from "../../components/Modal";
 import { SharedFooter } from "../../components/SharedFooter";
+import { SharedMenu } from "../../components/SharedMenu";
 import "./dashboard.scss"
 
 
@@ -86,23 +87,7 @@ export function Dashboard() {
                     onClick={(event)=>handleMenu(event)}
                     />
 
-                    <nav className="navBar sr-only">
-
-                        <ul >
-                            <li>
-                                Home
-                            </li>
-                            <li>
-                                Meus Produtos
-                            </li>
-                            <li>
-                                Meus Serviços
-                            </li>
-                            <li>
-                                Opções
-                            </li>
-                        </ul>
-                    </nav>
+<SharedMenu/>
 
 
                 </header>

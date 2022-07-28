@@ -2,10 +2,11 @@
     width: 100%;
     height: 100%;
 
-    padding-bottom: 200px;
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     header {
         width: 100%;
@@ -15,8 +16,13 @@
         align-items: center;
         flex-direction: column;
 
+        color:rgb(40, 100, 174);
+        font-weight: 500;
 
-        background: rgb(40, 100, 174);
+
+        // background: rgb(40, 100, 174);
+        // border-bottom: 1px solid rgb(40, 100, 174);
+        box-shadow: #0e0e0e 1px 0 5px;
 
         padding: 20px;
 
@@ -27,12 +33,15 @@
             align-items: center;
             padding: 5px;
             gap: 10px;
+            color:black;
+            text-align: center;
 
             .userUndefined {
                 background: #a7a7a7;
                 padding: 10px;
                 border-radius: 100%;
-                border: solid rgb(250, 189, 16) 2px;
+                // border: solid rgb(250, 189, 16) 2px;
+                border: solid rgb(40, 100, 174) 2px;
             }
 
             svg {
@@ -56,7 +65,11 @@
             width: 100%;
 
             // gap: 10px;
+            &:last-child{
+                border-bottom: 1px solid rgb(26, 75, 134);
+            }
         }
+
 
         .navBar ul li {
             width: 100%;
@@ -67,8 +80,9 @@
             border-top: 1px solid rgb(26, 75, 134);
 
             &:hover {
-                background-color: rgb(26, 75, 134);
+                background-color: #cac9c9;
             }
+
         }
 
         .menuSvg {
@@ -109,7 +123,8 @@
             min-height: 500px;
             max-width: 350px;
 
-            background: #a7a7a7;
+            background: rgb(40, 100, 174);
+            box-shadow: #0e0e0e 1px 1px 3px;
             width: 100%;
             height: 100%;
             display: flex;
@@ -144,7 +159,7 @@
                 padding: 10px;
                 width: 100%;
                 text-align: left;
-                background: rgb(40, 100, 174);
+                background: #cac9c9;
                 border-radius: 10px;
                 cursor: pointer;
 
@@ -159,6 +174,10 @@
         }
     }
 
+    footer{
+        box-shadow: #0e0e0e 0 0 5px;
+    }
+
 
 }
 
@@ -167,14 +186,19 @@
         header {
             justify-content: space-between;
             flex-direction: row;
+            border:none;
 
             .userInfos {
                 flex-direction: row;
+                text-align: left;
             }
 
             .navBar ul {
                 flex-direction: row;
 
+                &:last-child{
+                    border:none;
+                }
                 li {
                     border: none;
                     text-align: initial;
@@ -212,6 +236,10 @@
                 width: initial;
 
             }
+        }
+
+        main {
+            flex-direction: row;
         }
     }
 }

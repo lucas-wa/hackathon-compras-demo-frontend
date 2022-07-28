@@ -5,17 +5,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 20px;
+    // z-index: 5;
+
 
 
     form {
-        background-color: rgb(40, 100, 174);
+        // background-color: rgb(40, 100, 174);
+        background-color: #fefefe;
+        box-shadow: #0e0e0e 1px 0 5px;
         padding: 20px;
         text-align: center;
         font: 14pt Arial;
-        width: 350px;
+        width: 80%;
+        max-width: 500px;
         border-radius: 7px;
-        border: solid 1px black;
-        color: white;
+        border: none;
+        color: #0e0e0e;
 
         display: flex;
         flex-direction: column;
@@ -26,7 +32,9 @@
         /* border: solid 1px black; */
         border-radius: 7px;
         /* background-color: rgb(240, 240, 240); */
-        color: #fff;
+        // color: #fff;
+        color: #0e0e0e;
+
         font: 14pt Arial;
         margin-bottom: 10px;
     }
@@ -42,11 +50,20 @@
     .fields input {
         outline: none;
         border: none;
+        border-bottom: #0e0e0e 1px solid;
+        width: 100%;
+        
+    }
+
+    .fields label {
+        width: 100%;
+        text-align: left;
+
     }
 
     .dadoextraido {
         right: 20px;
-        border-radius: 5px;
+        // border-radius: 5px;
         padding: 3px;
     }
 
@@ -72,8 +89,9 @@
         width: 100%;
         border: none;
         cursor: pointer;
-        background-color: #a9a7a7;
+        background-color: rgb(40, 100, 174);
 
+    
     }
 
     .botoes a {
@@ -100,4 +118,23 @@
         right: 1%;
     }
 
+}
+
+@media only screen and (max-width: 768px){
+    .SignFormContent{
+        .fields {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .fields input {
+        width: 100%;
+
+        }
+
+        .botoes{
+            flex-direction: column;
+        }
+
+    }
 }

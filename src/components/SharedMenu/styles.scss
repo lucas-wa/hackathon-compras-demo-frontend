@@ -1,0 +1,103 @@
+.navBar {
+    width: 100%;
+
+}
+
+.navBar ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 100%;
+
+    // gap: 10px;
+    &:last-child {
+        border-bottom: 1px solid rgb(26, 75, 134);
+    }
+}
+
+
+
+.navBar ul li {
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color .3s ease;
+    text-align: center;
+    border-top: 1px solid rgb(26, 75, 134);
+    color: rgb(26, 75, 134);
+
+    &:hover {
+        background-color: #cac9c9;
+    }
+
+}
+
+.menuSvg {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 40px;
+    top: 40px;
+    cursor: pointer;
+    color:rgb(26, 75, 134);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .navBar ul {
+        flex-direction: row;
+
+        &:last-child {
+            border: none;
+        }
+
+        li {
+            border: none;
+            text-align: initial;
+            width: initial;
+
+        }
+
+    }
+
+    .menuSvg {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+
+    .sr-only {
+        position: initial;
+        width: initial;
+        height: initial;
+        padding: initial;
+        margin: 0;
+        overflow: initial;
+        clip: initial;
+        white-space: initial;
+        border-width: initial;
+    }
+
+    .navBar {
+        width: initial;
+
+    }
+}
