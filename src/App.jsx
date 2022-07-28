@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { AppRoutes } from "./routes";
 import "./App.css"
 import './index.css'
-import { Context } from './context/context';
+import { Context } from './context/Context';
 
 function App() {
 
