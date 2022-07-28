@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useContext } from "react";
 import { SharedFooter } from "../../components/SharedFooter";
-import { Context } from "../../context/context";
+import { Context } from "../../context/Context";
 
 import "./styles.scss"
 
