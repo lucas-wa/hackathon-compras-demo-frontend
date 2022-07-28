@@ -69,7 +69,7 @@ export function Dashboard() {
                             <AiOutlineUser />
 
                         </div>
-                        <p>
+                        <span>
                             <strong>
                                 Distribuidora Cerveja {"&"} Cia
                             </strong>
@@ -79,7 +79,7 @@ export function Dashboard() {
                             <p>
                                 CNPJ: 371573840001-80
                             </p>
-                        </p>
+                        </span>
                     </div>
 
                     <AiOutlineMenu 
